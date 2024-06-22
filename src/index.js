@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import DashboardSP500 from './components/DashboardSP500';
 import DashboardBitcoin from './components/DashboardBitcoin';
 import DashboardTesla from './components/DashboardTesla';
+import DashboardGOOG from './components/DashboardGOOG';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
       path: "/TSLA",
       element: <DashboardTesla/>
+    },
+    {
+      path: "/GOOG",
+      element: <DashboardGOOG/>
     }]
   },
   

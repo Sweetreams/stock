@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { mockHistoricalData, mockHistoricalDataAPPL, mockHistoricalDataSP500 } from "../constants/mock";
 import { convertUnixTimestampToDate } from "../utils/helpers/date-helper";
 import {
   Area,
@@ -10,8 +9,6 @@ import {
   Tooltip,
 } from "recharts";
 import Card from "./Card";
-import { chartConfig } from "../constants/config";
-import ChartFilter from "./ChartFilter";
 import ThemeContext from "../context/ThemeContext";
 
 const Chart = ({value}) => {
@@ -76,7 +73,7 @@ const Chart = ({value}) => {
             content={<CustomTooltip/>}
           />
           <XAxis dataKey="date" />
-          <YAxis domain={[]} />
+          <YAxis domain={[20, 200]} />
         </AreaChart>
       </ResponsiveContainer>
     </Card>
