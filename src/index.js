@@ -3,11 +3,40 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import DashboardSP500 from './components/DashboardSP500';
+import DashboardBitcoin from './components/DashboardBitcoin';
+import DashboardTesla from './components/DashboardTesla';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    children: [{
+      path: "/AAPL",
+      element: <Dashboard/>
+    },
+    {
+      path: "/SPX",
+      element: <DashboardSP500/>
+    },
+    {
+      path: "/BTC",
+      element: <DashboardBitcoin/>
+    },
+    {
+      path: "/TSLA",
+      element: <DashboardTesla/>
+    }]
+  },
+  
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
