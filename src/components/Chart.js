@@ -30,21 +30,22 @@ const Chart = ({value}) => {
     });
   };
 
+  function CustomTooltip({ payload, label, active }) {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`Дата: ${label}`}</p>
+          <p className="intro">{`Цена: ${payload[0].value}$`}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  }
+
   return (
     <Card>
-      <ul className="flex absolute top-2 right-2 z-40">
-        {Object.keys(chartConfig).map((item) => (
-          <li key={item}>
-            <ChartFilter
-              text={item}
-              active={filter === item}
-              onClick={() => {
-                setFilter(item);
-              }}
-            />
-          </li>
-        ))}
-      </ul>
+      
       <ResponsiveContainer>
         <AreaChart data={formatData(data)}>
           <defs>
@@ -72,6 +73,7 @@ const Chart = ({value}) => {
           <Tooltip
             contentStyle={darkMode ? { backgroundColor: "#111827" } : null}
             itemStyle={darkMode ? { color: "#818cf8" } : null}
+            content={<CustomTooltip/>}
           />
           <XAxis dataKey="date" />
           <YAxis domain={[]} />

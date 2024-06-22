@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Header from "./Header";
-import { mockCompanyDetailsAAPL, mockHistoricalDataAPPL, mockHistoricalDataTesla, mockStockQuote, mockStockQuoteAPPL } from "../constants/mock";
+import { mockCompanyDetailsAAPL, mockHistoricalDataAPPL, mockStockQuoteAPPL } from "../constants/mock";
 import Details from "./Details";
 import Overview from "./Overview";
 import Chart from "./Chart";
